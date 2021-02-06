@@ -4,11 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_demo_firebase/pages/AddMovie.dart';
 import 'package:riverpod_demo_firebase/providers/DatabaseProvider.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends StatelessWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
+  Widget build(BuildContext context) {
     final database = context.read(databaseProvider);
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Riverpod Firebase Demo'),

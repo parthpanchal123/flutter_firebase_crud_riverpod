@@ -4,17 +4,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_demo_firebase/pages/HomeScreen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // don't mess up the order of the steps here
+  WidgetsFlutterBinding.ensureInitialized(); // Very Important to do (Reason below)
+  await Firebase.initializeApp(); // this connects our app with Firebase
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ProviderScope(
+    return ProviderScope( //
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Firebase CRUD Demo',
         theme: ThemeData.dark(),
         home: HomeScreen(),
       ),
